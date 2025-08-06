@@ -1,11 +1,13 @@
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import CircularProgress from '@mui/material/CircularProgress';
 import { useState } from 'react';
 import "./SearchBox.css";
 
 export default function SearchBox({ updateInfo }) {
     let [city, setCity] = useState("");
     let [error, setError] = useState(false);
+    let [loading, setLoading] = useState(false);
 
     const API_URL = "https://api.openweathermap.org/geo/1.0/direct";
     const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
@@ -49,14 +51,18 @@ export default function SearchBox({ updateInfo }) {
 
     let handleSubmit = async (event) => {
         event.preventDefault();
+          setLoading(true); // 🔵 Show loading
 
         try {
             let newInfo = await getWeatherInfo();
             updateInfo(newInfo);
+             setError(false);  // ✅ reset error on success
             setCity("");
         } catch (err) {
             setError(true);
-        }
+        } finally {
+        setLoading(false); // 🟢 Hide loading
+    }
     }
 
     return (
@@ -64,11 +70,13 @@ export default function SearchBox({ updateInfo }) {
             <form className="formDetails" onSubmit={handleSubmit}>
                 <TextField id="city" placeholder='Search for City' variant="standard" value={city} onChange={handleChange} required />
                 <Button variant="contained" type="submit" >Search</Button>
-                <br></br>
-                {error && <p style={{ color: "red" }}>City not found!</p>}
-                 
             </form>
-           
+            {error && (
+                <div style={{ marginTop: "8px" }}>
+                    <p style={{ color: "red", fontSize: "1.2rem" }}>City not found!</p>
+                </div>
+            )}
+
         </div>
     )
 }
