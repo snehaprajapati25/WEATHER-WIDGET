@@ -1,0 +1,26 @@
+.CardContainer{
+   width: 450px;
+   margin-top: 60px;
+}
+
+.weatherDetail p{
+    margin: 0px;
+}
+
+@media (max-width: 600px) {
+  .CardContainer {
+    margin-top: 30px;
+  }
+
+  .weatherDetail p {
+    font-size: 0.9rem;
+  }
+
+  .weatherDetail img {
+    width: 40px;
+  }
+}
+
+
+
+
