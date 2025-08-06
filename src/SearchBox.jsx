@@ -64,6 +64,7 @@ export default function SearchBox({ updateInfo }) {
             <form className="formDetails" onSubmit={handleSubmit}>
                 <TextField id="city" placeholder='Search for City' variant="standard" value={city} onChange={handleChange} required />
                 <Button variant="contained" type="submit" >Search</Button>
+                <br></br>
                 {error && <p style={{ color: "red" }}>City not found!</p>}
                  
             </form>
