@@ -1,4 +1,4 @@
-# 🌦️ Weather Widget App — React + Vite
+# 🌦️ Weather Widget App
 
 This is a responsive weather widget built using **React** and **Vite**, styled with **Material UI**, and powered by the **OpenWeatherMap API**. It allows users to:
 
