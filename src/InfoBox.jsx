@@ -40,12 +40,12 @@ export default function InfoBox({ info }) {
                         </Typography>
                         <Typography variant="body2" sx={{ color: 'text.secondary', display: 'flex', alignItems: 'center', justifyContent: 'space-around', fontSize: '1rem' }}>
                             <div className='weatherDetail'>
-                                <img src='../public/humidity.png'></img>
+                                <img src='/public/humidity.png'></img>
                                 <p>HUMIDITY</p>
                                 <p> {info.humidity}%</p>
                             </div>
                             <div className='weatherDetail'>
-                                <img src='../public/wind.png'></img>
+                                <img src='/public/wind.png'></img>
                                 <p>WIND SPEED </p>
                                 <p> {info.windSpeed}m/s</p>
                             </div>
